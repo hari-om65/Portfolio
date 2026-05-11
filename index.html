@@ -3,15 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Hari Om Singh | Portfolio</title>
+  <title>Hari Om Singh — AI/ML Engineer</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
+  <!-- Background Effects -->
+  <div class="bg-grid"></div>
+  <div class="bg-glow"></div>
+  <div class="particles" id="particles"></div>
+
   <!-- NAVBAR -->
   <nav class="navbar">
-    <div class="logo">HariOm</div>
+    <div class="logo">Hari Om<span>.</span></div>
     <ul class="nav-links">
       <li><a href="#home" class="active">Home</a></li>
       <li><a href="#about">About</a></li>
@@ -21,127 +28,137 @@
     </ul>
   </nav>
 
-  <!-- HOME -->
-  <section id="home" class="section home">
-    <div class="home-content">
-      <h1>Hi, I'm <span>Hari Om Singh</span></h1>
-      <h2 class="role">B.Tech CSE | ML & Backend Developer</h2>
-      <p>
-        Passionate about building Scientific Machine Learning systems, secure backends, 
-        and intelligent applications. Currently exploring Neural ODEs, PINNs, and 
-        production-ready AI middleware.
-      </p>
-      <div class="btns">
-        <a href="https://github.com/hariom765" target="_blank" class="btn">GitHub</a>
-        <a href="#contact" class="btn outline">Contact Me</a>
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="hero-container">
+      <div class="hero-left">
+        <div class="badge">
+          <span class="dot"></span> Available for Research & Engineering Roles
+        </div>
+
+        <h1 class="hero-name">Hari Om Singh</h1>
+        <h2 class="hero-role">AI/ML Engineer</h2>
+
+        <p class="hero-tagline">
+          Building AI systems with Scientific Machine Learning, FastAPI, and scalable backend infrastructure.
+        </p>
+
+        <p class="hero-desc">
+          Pre-final year Computer Science student focused on Scientific Machine Learning, Neural ODEs, and secure AI systems with real-world deployment experience.
+        </p>
+
+        <div class="hero-cta">
+          <a href="#" class="btn-primary">
+            <i class="fas fa-download"></i> Download Resume
+          </a>
+          <a href="#contact" class="btn-secondary">
+            Get In Touch <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <div class="hero-socials">
+          <a href="https://github.com/hari-om65" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+          <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="mailto:hariomsingh8340@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+          <a href="#" target="_blank" title="HuggingFace">🤗</a>
+        </div>
       </div>
-      <div class="socials">
-        <a href="https://github.com/hariom765" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="mailto:hariomsingh8340@gmail.com"><i class="fas fa-envelope"></i></a>
-        <a href="#"><i class="fab fa-linkedin"></i></a>
+
+      <div class="hero-right">
+        <div class="stat-card">
+          <div class="stat-num">60K+</div>
+          <div class="stat-label">Simulations</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">4+</div>
+          <div class="stat-label">Projects</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">ML4SCI</div>
+          <div class="stat-label">CERN</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">CDAC</div>
+          <div class="stat-label">Intern 2025</div>
+        </div>
       </div>
+    </div>
+
+    <div class="scroll-indicator">
+      <span>Scroll to explore</span>
+      <div class="mouse"></div>
     </div>
   </section>
 
   <!-- ABOUT -->
   <section id="about" class="section">
-    <h2 class="title">About <span>Me</span></h2>
+    <h2 class="section-title">About <span>Me</span></h2>
     <div class="about-box">
-      <p>
-        I'm a Computer Science undergraduate at <b>Birsa Institute of Technology, Sindri</b> 
-        (CGPA 7.56). I specialize in <b>Scientific Machine Learning</b>, <b>backend systems</b>, 
-        and <b>cybersecurity</b>. I love solving real-world problems through code — 
-        from epidemic modeling using Neural ODEs to building privacy-preserving 
-        middleware for LLM agents.
-      </p>
-      <p>
-        🎓 <b>Education:</b> B.Tech CSE (2023–2027), Birsa Institute of Technology, Sindri<br>
-        📍 <b>Location:</b> Dhanbad, India<br>
-        💼 <b>Internship:</b> Cybersecurity Intern @ CDAC Noida (2025)<br>
-        🏆 <b>Achievements:</b> 200+ DSA on LeetCode, Microsoft AI Trophy, GSoC 2026 Applicant
-      </p>
+      <p>I'm a Computer Science undergraduate at <b>Birsa Institute of Technology, Sindri</b> (CGPA 7.56). I specialize in <b>Scientific Machine Learning</b>, <b>backend systems</b>, and <b>cybersecurity</b>.</p>
+      <p>🎓 B.Tech CSE (2023–2027) · 📍 Dhanbad, India · 💼 Cybersecurity Intern @ CDAC Noida · 🏆 GSoC 2026 Applicant · Microsoft AI Trophy</p>
     </div>
   </section>
 
   <!-- SKILLS -->
   <section id="skills" class="section">
-    <h2 class="title">My <span>Skills</span></h2>
+    <h2 class="section-title">My <span>Skills</span></h2>
     <div class="skills-grid">
-      <div class="skill-card">
-        <h3>Languages</h3>
-        <p>Python, C++, Java, SQL, HTML, CSS, Rust</p>
-      </div>
-      <div class="skill-card">
-        <h3>Machine Learning & AI</h3>
-        <p>PyTorch, SciPy, Pandas, Scikit-Learn, Hugging Face, Neural ODEs, PINNs, NLP (spaCy)</p>
-      </div>
-      <div class="skill-card">
-        <h3>Backend & DevOps</h3>
-        <p>FastAPI, Docker, REST APIs, GitHub Actions (CI/CD)</p>
-      </div>
-      <div class="skill-card">
-        <h3>Tools & Cybersecurity</h3>
-        <p>Git, Google Colab, Docker, Microsoft Azure, Wireshark, Nessus, Nmap</p>
-      </div>
-      <div class="skill-card">
-        <h3>Core CS</h3>
-        <p>Data Structures, Algorithms, OOP, Network Programming</p>
-      </div>
+      <div class="skill-card"><h3>Languages</h3><p>Python, C++, Java, SQL, HTML, CSS, Rust</p></div>
+      <div class="skill-card"><h3>ML & AI</h3><p>PyTorch, SciPy, Pandas, Scikit-Learn, Hugging Face, Neural ODEs, PINNs, spaCy</p></div>
+      <div class="skill-card"><h3>Backend & DevOps</h3><p>FastAPI, Docker, REST APIs, GitHub Actions (CI/CD)</p></div>
+      <div class="skill-card"><h3>Cybersecurity</h3><p>Wireshark, Nessus, Nmap, Burp Suite, Penetration Testing</p></div>
+      <div class="skill-card"><h3>Tools</h3><p>Git, Google Colab, Docker, Microsoft Azure</p></div>
+      <div class="skill-card"><h3>Core CS</h3><p>Data Structures, Algorithms, OOP, Network Programming</p></div>
     </div>
   </section>
 
   <!-- PROJECTS -->
   <section id="projects" class="section">
-    <h2 class="title">My <span>Projects</span></h2>
+    <h2 class="section-title">My <span>Projects</span></h2>
     <div class="projects-grid">
-
       <div class="project-card">
-        <h3>SIR-ML: Epidemic Dynamics via SciML</h3>
-        <p>Built a 4-stage Scientific ML pipeline: Gillespie SSA → Neural ODE → PINN trajectory learning → PySR symbolic regression. Achieved R² = 0.99 on 60,000+ epidemic simulations.</p>
-        <p><b>Tech:</b> Python, PyTorch, SciPy, Neural ODE, PINN, Gradio, Hugging Face</p>
-        <a href="#" class="btn small">GitHub</a>
-        <a href="#" class="btn small outline">Live Demo</a>
+        <h3>SIR-ML: Epidemic Dynamics</h3>
+        <p>4-stage Scientific ML pipeline: Gillespie SSA → Neural ODE → PINN → PySR symbolic regression. R²=0.99 on 60,000+ simulations.</p>
+        <p class="tech">Python · PyTorch · SciPy · Neural ODE · PINN · Gradio</p>
+        <div class="project-links">
+          <a href="#">GitHub</a><a href="#">Live Demo</a>
+        </div>
       </div>
-
       <div class="project-card">
-        <h3>PII-Safe: Privacy Middleware for LLMs</h3>
-        <p>Engineered production-ready middleware with 12 FastAPI endpoints for PII detection, redaction, and injection blocking in LLM/MCP workflows.</p>
-        <p><b>Tech:</b> Python, FastAPI, spaCy, Docker, REST API</p>
-        <a href="#" class="btn small">GitHub</a>
+        <h3>PII-Safe: Privacy Middleware</h3>
+        <p>Production-ready middleware with 12 FastAPI endpoints for PII detection, redaction, and injection blocking in LLM/MCP workflows.</p>
+        <p class="tech">Python · FastAPI · spaCy · Docker</p>
+        <div class="project-links"><a href="#">GitHub</a></div>
       </div>
-
       <div class="project-card">
-        <h3>Cybersecurity Vulnerability Assessment</h3>
-        <p>Conducted penetration testing on Windows systems using Wireshark, Nessus, Nmap, and Burp Suite during CDAC Noida internship.</p>
-        <p><b>Tech:</b> Wireshark, Nessus, Nmap, Burp Suite</p>
-        <a href="#" class="btn small">Certificate</a>
+        <h3>Cybersecurity Assessment</h3>
+        <p>Penetration testing on Windows systems using industry tools during CDAC Noida internship.</p>
+        <p class="tech">Wireshark · Nessus · Nmap · Burp Suite</p>
+        <div class="project-links"><a href="#">Certificate</a></div>
       </div>
-
     </div>
   </section>
 
   <!-- CONTACT -->
   <section id="contact" class="section">
-    <h2 class="title">Contact <span>Me</span></h2>
+    <h2 class="section-title">Contact <span>Me</span></h2>
     <div class="contact-box">
       <form id="contactForm">
         <input type="text" placeholder="Your Name" required />
         <input type="email" placeholder="Your Email" required />
         <input type="text" placeholder="Subject" required />
         <textarea rows="5" placeholder="Your Message" required></textarea>
-        <button type="submit" class="btn">Send Message</button>
+        <button type="submit" class="btn-primary">Send Message</button>
       </form>
       <div class="contact-info">
         <p><i class="fas fa-envelope"></i> hariomsingh8340@gmail.com</p>
         <p><i class="fas fa-phone"></i> +91-8102951848</p>
-        <p><i class="fab fa-github"></i> github.com/hariom765</p>
+        <p><i class="fab fa-github"></i> github.com/hari-om65</p>
       </div>
     </div>
   </section>
 
-  <footer>
-    <p>© 2025 Hari Om Singh. All Rights Reserved.</p>
-  </footer>
+  <footer><p>© 2025 Hari Om Singh · Built with passion 🚀</p></footer>
 
   <script src="script.js"></script>
 </body>
