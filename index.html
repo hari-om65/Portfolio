@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hari Om Singh | Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="logo">HariOm</div>
+    <ul class="nav-links">
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HOME -->
+  <section id="home" class="section home">
+    <div class="home-content">
+      <h1>Hi, I'm <span>Hari Om Singh</span></h1>
+      <h2 class="role">B.Tech CSE | ML & Backend Developer</h2>
+      <p>
+        Passionate about building Scientific Machine Learning systems, secure backends, 
+        and intelligent applications. Currently exploring Neural ODEs, PINNs, and 
+        production-ready AI middleware.
+      </p>
+      <div class="btns">
+        <a href="https://github.com/hariom765" target="_blank" class="btn">GitHub</a>
+        <a href="#contact" class="btn outline">Contact Me</a>
+      </div>
+      <div class="socials">
+        <a href="https://github.com/hariom765" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="mailto:hariomsingh8340@gmail.com"><i class="fas fa-envelope"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <h2 class="title">About <span>Me</span></h2>
+    <div class="about-box">
+      <p>
+        I'm a Computer Science undergraduate at <b>Birsa Institute of Technology, Sindri</b> 
+        (CGPA 7.56). I specialize in <b>Scientific Machine Learning</b>, <b>backend systems</b>, 
+        and <b>cybersecurity</b>. I love solving real-world problems through code — 
+        from epidemic modeling using Neural ODEs to building privacy-preserving 
+        middleware for LLM agents.
+      </p>
+      <p>
+        🎓 <b>Education:</b> B.Tech CSE (2023–2027), Birsa Institute of Technology, Sindri<br>
+        📍 <b>Location:</b> Dhanbad, India<br>
+        💼 <b>Internship:</b> Cybersecurity Intern @ CDAC Noida (2025)<br>
+        🏆 <b>Achievements:</b> 200+ DSA on LeetCode, Microsoft AI Trophy, GSoC 2026 Applicant
+      </p>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="section">
+    <h2 class="title">My <span>Skills</span></h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h3>Languages</h3>
+        <p>Python, C++, Java, SQL, HTML, CSS, Rust</p>
+      </div>
+      <div class="skill-card">
+        <h3>Machine Learning & AI</h3>
+        <p>PyTorch, SciPy, Pandas, Scikit-Learn, Hugging Face, Neural ODEs, PINNs, NLP (spaCy)</p>
+      </div>
+      <div class="skill-card">
+        <h3>Backend & DevOps</h3>
+        <p>FastAPI, Docker, REST APIs, GitHub Actions (CI/CD)</p>
+      </div>
+      <div class="skill-card">
+        <h3>Tools & Cybersecurity</h3>
+        <p>Git, Google Colab, Docker, Microsoft Azure, Wireshark, Nessus, Nmap</p>
+      </div>
+      <div class="skill-card">
+        <h3>Core CS</h3>
+        <p>Data Structures, Algorithms, OOP, Network Programming</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="section">
+    <h2 class="title">My <span>Projects</span></h2>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <h3>SIR-ML: Epidemic Dynamics via SciML</h3>
+        <p>Built a 4-stage Scientific ML pipeline: Gillespie SSA → Neural ODE → PINN trajectory learning → PySR symbolic regression. Achieved R² = 0.99 on 60,000+ epidemic simulations.</p>
+        <p><b>Tech:</b> Python, PyTorch, SciPy, Neural ODE, PINN, Gradio, Hugging Face</p>
+        <a href="#" class="btn small">GitHub</a>
+        <a href="#" class="btn small outline">Live Demo</a>
+      </div>
+
+      <div class="project-card">
+        <h3>PII-Safe: Privacy Middleware for LLMs</h3>
+        <p>Engineered production-ready middleware with 12 FastAPI endpoints for PII detection, redaction, and injection blocking in LLM/MCP workflows.</p>
+        <p><b>Tech:</b> Python, FastAPI, spaCy, Docker, REST API</p>
+        <a href="#" class="btn small">GitHub</a>
+      </div>
+
+      <div class="project-card">
+        <h3>Cybersecurity Vulnerability Assessment</h3>
+        <p>Conducted penetration testing on Windows systems using Wireshark, Nessus, Nmap, and Burp Suite during CDAC Noida internship.</p>
+        <p><b>Tech:</b> Wireshark, Nessus, Nmap, Burp Suite</p>
+        <a href="#" class="btn small">Certificate</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section">
+    <h2 class="title">Contact <span>Me</span></h2>
+    <div class="contact-box">
+      <form id="contactForm">
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <input type="text" placeholder="Subject" required />
+        <textarea rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+      <div class="contact-info">
+        <p><i class="fas fa-envelope"></i> hariomsingh8340@gmail.com</p>
+        <p><i class="fas fa-phone"></i> +91-8102951848</p>
+        <p><i class="fab fa-github"></i> github.com/hariom765</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Hari Om Singh. All Rights Reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
