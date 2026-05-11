@@ -1,12 +1,21 @@
-// Active nav link on scroll
-const sections = document.querySelectorAll('.section');
-const navLinks = document.querySelectorAll('.nav-links a');
+// Floating Particles
+const particles = document.getElementById('particles');
+for (let i = 0; i < 30; i++) {
+  const p = document.createElement('div');
+  p.className = 'particle';
+  p.style.left = Math.random() * 100 + '%';
+  p.style.animationDuration = (Math.random() * 15 + 10) + 's';
+  p.style.animationDelay = Math.random() * 10 + 's';
+  particles.appendChild(p);
+}
 
+// Active nav on scroll
+const sections = document.querySelectorAll('.hero, .section');
+const navLinks = document.querySelectorAll('.nav-links a');
 window.addEventListener('scroll', () => {
   let current = '';
   sections.forEach(sec => {
-    const top = sec.offsetTop - 150;
-    if (scrollY >= top) current = sec.id;
+    if (scrollY >= sec.offsetTop - 200) current = sec.id;
   });
   navLinks.forEach(link => {
     link.classList.remove('active');
@@ -14,9 +23,9 @@ window.addEventListener('scroll', () => {
   });
 });
 
-// Contact form
+// Contact Form
 document.getElementById('contactForm').addEventListener('submit', e => {
   e.preventDefault();
-  alert('Thank you! Your message has been sent. I will reply soon. 🚀');
+  alert('✅ Thank you! Your message has been sent.');
   e.target.reset();
 });
