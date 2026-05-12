@@ -9,6 +9,30 @@ for (let i = 0; i < 30; i++) {
   particles.appendChild(p);
 }
 
+// Typing Animation
+const roles = [
+  "AI/ML Engineer",
+  "Scientific ML Researcher",
+  "Backend Developer",
+  "Open Source Contributor"
+];
+let roleIdx = 0, charIdx = 0, deleting = false;
+const typedEl = document.getElementById('typed');
+
+function type() {
+  const current = roles[roleIdx];
+  if (deleting) {
+    typedEl.textContent = current.substring(0, charIdx--);
+    if (charIdx < 0) { deleting = false; roleIdx = (roleIdx+1) % roles.length; }
+    setTimeout(type, 60);
+  } else {
+    typedEl.textContent = current.substring(0, charIdx++);
+    if (charIdx > current.length) { deleting = true; setTimeout(type, 1800); return; }
+    setTimeout(type, 100);
+  }
+}
+type();
+
 // Active nav on scroll
 const sections = document.querySelectorAll('.hero, .section');
 const navLinks = document.querySelectorAll('.nav-links a');
@@ -23,9 +47,10 @@ window.addEventListener('scroll', () => {
   });
 });
 
-// Contact Form
+// Contact form
 document.getElementById('contactForm').addEventListener('submit', e => {
   e.preventDefault();
-  alert('✅ Thank you! Your message has been sent.');
+  const name = e.target.querySelector('input[type="text"]').value;
+  alert(`Thanks ${name}! 🚀 Your message was received. I'll reply within 24 hours.`);
   e.target.reset();
 });
