@@ -1,81 +1,429 @@
-Completely redesign the hero section to remove the generic AI-template and cyberpunk appearance. The current design feels artificial, overly futuristic, and visually unbalanced. Replace it with a cleaner, more premium, and realistic modern developer portfolio aesthetic inspired by Vercel, Linear, Anthropic, and high-end AI startup websites.
+*, *::before, *::after {
+  margin: 0; padding: 0; box-sizing: border-box;
+}
 
-Remove:
+:root {
+  --bg: #0a0a0a;
+  --bg-elevated: #111111;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-hover: rgba(255, 255, 255, 0.15);
+  --text-primary: #ededed;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
+  --accent: #ffffff;
+  --green: #22c55e;
+}
 
-* heavy glowing grid background
-* cyberpunk effects
-* excessive neon colors
-* floating random stats cards
-* oversized portrait styling
-* generic AI-generated visual appearance
+html { scroll-behavior: smooth; }
 
-Use a clean dark background with:
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: -0.01em;
+}
 
-* soft radial gradients
-* subtle texture/noise
-* minimal blur lighting
-* very light animated particles
-* smooth modern transitions
+/* === Background === */
+.bg-gradient {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: 
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(120, 119, 198, 0.08), transparent 60%),
+    radial-gradient(ellipse 60% 50% at 80% 50%, rgba(100, 130, 200, 0.04), transparent 60%),
+    radial-gradient(ellipse 60% 50% at 20% 80%, rgba(150, 120, 200, 0.04), transparent 60%);
+}
 
-The layout should feel balanced and natural with strong spacing and visual hierarchy.
+.bg-gradient::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+  opacity: 0.025;
+  mix-blend-mode: overlay;
+}
 
-Hero Section Layout:
+#particles {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
 
-* Left side: text content and CTA buttons
-* Right side: professional photo with modern layout integration
+/* === Navbar === */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 48px;
+  transition: all 0.3s ease;
+}
 
-Use the uploaded real photo instead of stylized AI portraits. The image should appear inside a clean rounded container with subtle shadow and soft gradient lighting behind it. Avoid dramatic effects or futuristic frames.
+.navbar.scrolled {
+  padding: 14px 48px;
+  background: rgba(10, 10, 10, 0.7);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid var(--border);
+}
 
-Typography:
-Use modern clean typography similar to Vercel and Linear websites:
+.nav-logo {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
 
-* large but balanced heading
-* improved spacing
-* clean readable paragraph width
-* no oversized elements
+.nav-links {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
 
-Heading:
-“Hari Om Singh”
-“AI/ML Engineer”
+.nav-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 450;
+  transition: color 0.2s ease;
+  position: relative;
+}
 
-Subheading:
-“Building AI systems with Scientific Machine Learning and scalable backend infrastructure.”
+.nav-links a:hover { color: var(--text-primary); }
 
-Short intro:
-“Pre-final year Computer Science student focused on Scientific Machine Learning, Neural ODEs, and secure AI systems with real-world deployment experience.”
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--text-primary);
+  transition: width 0.25s ease;
+}
 
-Buttons:
+.nav-links a:hover::after { width: 100%; }
 
-* Download Resume
-* Get In Touch
+.nav-cta {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  text-decoration: none;
+  padding: 8px 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  background: rgba(255, 255, 255, 0.02);
+}
 
-Buttons should be modern, minimal, and subtle with soft hover animations only.
+.nav-cta:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: var(--border-hover);
+}
 
-Remove the vertical floating stats cards on the right side and instead create a small clean horizontal stats row below the buttons:
+/* === Hero === */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 120px 48px 80px;
+  position: relative;
+  z-index: 2;
+}
 
-* 60K+ Simulations
-* 4+ Projects
-* ML4SCI-CERN
-* CDAC Intern
+.hero-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 80px;
+  align-items: center;
+}
 
-Navbar:
+/* === Left Content === */
+.hero-content {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.1s forwards;
+}
 
-* minimal transparent navbar
-* smooth hover underline
-* cleaner spacing
-* modern typography
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
 
-Social icons:
-Use subtle monochrome icons with smooth hover transitions.
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 12px;
+  background: rgba(34, 197, 94, 0.08);
+  border: 1px solid rgba(34, 197, 94, 0.2);
+  border-radius: 100px;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: #4ade80;
+  margin-bottom: 32px;
+}
 
-The entire hero section should feel:
+.status-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 8px rgba(34, 197, 94, 0.6);
+  animation: blink 2s ease-in-out infinite;
+}
 
-* authentic
-* modern
-* minimal
-* premium
-* recruiter-friendly
-* engineering-focused
-* handcrafted instead of AI-generated
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
 
-Avoid anything that looks cyberpunk, flashy, overloaded, or template-generated.
+.hero-name {
+  font-size: clamp(36px, 4.5vw, 56px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.hero-role {
+  font-size: clamp(20px, 2.2vw, 26px);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--text-secondary);
+  margin-bottom: 28px;
+}
+
+.hero-subtitle {
+  font-size: 17px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin-bottom: 16px;
+  max-width: 520px;
+  font-weight: 400;
+}
+
+.hero-intro {
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.65;
+  margin-bottom: 36px;
+  max-width: 520px;
+}
+
+/* === CTAs === */
+.cta-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  cursor: pointer;
+  border: 1px solid transparent;
+  letter-spacing: -0.01em;
+}
+
+.btn i { font-size: 11px; transition: transform 0.2s ease; }
+
+.btn-primary {
+  background: var(--text-primary);
+  color: var(--bg);
+}
+
+.btn-primary:hover {
+  background: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.1);
+}
+
+.btn-primary:hover i { transform: translateY(2px); }
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text-primary);
+  border-color: var(--border);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: var(--border-hover);
+  transform: translateY(-1px);
+}
+
+.btn-secondary:hover i { transform: translateX(3px); }
+
+/* === Stats Row === */
+.stats-row {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.stat-num {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.stat-text {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 450;
+  letter-spacing: 0.01em;
+}
+
+.stat-divider {
+  width: 1px;
+  height: 28px;
+  background: var(--border);
+}
+
+/* === Socials === */
+.socials {
+  display: flex;
+  gap: 4px;
+}
+
+.socials a {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  font-size: 15px;
+}
+
+.socials a:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* === Hero Visual === */
+.hero-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.3s forwards;
+}
+
+.image-container {
+  position: relative;
+  width: 380px;
+  height: 460px;
+}
+
+.image-glow {
+  position: absolute;
+  inset: -30px;
+  background: radial-gradient(circle at 50% 50%, rgba(120, 119, 198, 0.15), transparent 60%);
+  filter: blur(40px);
+  z-index: 0;
+}
+
+.image-box {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  box-shadow: 
+    0 20px 60px -20px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(255, 255, 255, 0.02) inset;
+  z-index: 1;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.image-box:hover {
+  transform: translateY(-4px);
+}
+
+.image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  filter: contrast(1.02) saturate(0.95);
+}
+
+/* === Responsive === */
+@media (max-width: 968px) {
+  .navbar { padding: 16px 24px; }
+  .navbar.scrolled { padding: 12px 24px; }
+  .nav-links { display: none; }
+
+  .hero { padding: 110px 24px 60px; }
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: 56px;
+    text-align: left;
+  }
+  
+  .hero-visual { order: -1; }
+  .image-container { width: 240px; height: 290px; }
+  
+  .hero-name { font-size: 38px; }
+  .hero-role { font-size: 20px; }
+}
+
+@media (max-width: 540px) {
+  .hero { padding: 100px 20px 50px; }
+  .hero-name { font-size: 32px; }
+  .hero-subtitle { font-size: 15px; }
+  .hero-intro { font-size: 14px; }
+  
+  .cta-row { flex-direction: column; align-items: stretch; }
+  .btn { justify-content: center; }
+  
+  .stats-row { gap: 16px; }
+  .stat-divider { display: none; }
+  
+  .image-container { width: 200px; height: 240px; }
+}
