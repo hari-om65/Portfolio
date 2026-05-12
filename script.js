@@ -1,30 +1,37 @@
-// Navbar scroll effect
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 30) {
-    navbar.classList.add('scrolled');
-  } else {
-    navbar.classList.remove('scrolled');
-  }
+// =========================
+// script.js
+// =========================
+
+// Smooth reveal animation
+
+const hero = document.querySelector(".hero-content");
+
+window.addEventListener("load", () => {
+  hero.style.opacity = "0";
+  hero.style.transform = "translateY(40px)";
+
+  setTimeout(() => {
+    hero.style.transition = "1.2s ease";
+    hero.style.opacity = "1";
+    hero.style.transform = "translateY(0)";
+  }, 300);
 });
 
-// Active nav link on scroll
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.nav-links a');
+// Mouse glow effect
 
-window.addEventListener('scroll', () => {
-  let current = '';
-  sections.forEach(section => {
-    const top = section.offsetTop - 150;
-    if (window.scrollY >= top) {
-      current = section.getAttribute('id');
-    }
-  });
+document.addEventListener("mousemove", (e) => {
 
-  navLinks.forEach(link => {
-    link.classList.remove('active');
-    if (link.getAttribute('href') === '#' + current) {
-      link.classList.add('active');
-    }
-  });
+  const glow = document.createElement("div");
+
+  glow.className = "cursor-glow";
+
+  glow.style.left = `${e.clientX}px`;
+  glow.style.top = `${e.clientY}px`;
+
+  document.body.appendChild(glow);
+
+  setTimeout(() => {
+    glow.remove();
+  }, 500);
+
 });
