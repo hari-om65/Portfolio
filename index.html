@@ -1,37 +1,34 @@
-<!-- ========================= -->
-<!-- index.html -->
-<!-- ========================= -->
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hari Om Singh | Portfolio</title>
 
-  <link rel="stylesheet" href="style.css"/>
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css" />
 
-  <!-- Remix Icons -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
-    rel="stylesheet"
-  />
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
 </head>
 
 <body>
 
   <!-- Animated Background -->
-  <div class="bg-animation">
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
+  <div class="bg"></div>
 
   <!-- Navbar -->
-  <header class="navbar">
-    <div class="logo">Hari Om Singh</div>
+  <header>
+
+    <div class="logo">
+      Hari Om Singh
+    </div>
 
     <nav>
       <a href="#">Home</a>
@@ -41,79 +38,102 @@
       <a href="#">Contact</a>
     </nav>
 
-    <button class="nav-btn">Hire Me</button>
+    <button class="hire-btn">
+      Hire Me
+    </button>
+
   </header>
 
   <!-- Hero Section -->
   <section class="hero">
 
-    <div class="hero-content">
+    <!-- LEFT -->
+    <div class="hero-left">
 
-      <div class="status">
-        <div class="dot"></div>
+      <div class="tag">
+        <span></span>
         Available for internships
       </div>
 
       <h1>
-        Building <span>AI Systems</span><br>
+        Building AI Systems <br>
         That Feel Alive.
       </h1>
 
-      <p class="subtitle">
+      <h2>
         AI/ML Engineer • Cybersecurity Enthusiast • Full Stack Developer
-      </p>
+      </h2>
 
-      <p class="description">
-        I build scalable AI products, secure backend systems,
-        and dynamic web experiences focused on performance,
-        innovation, and real-world impact.
+      <p>
+        I build scalable AI systems, secure backend infrastructure,
+        and dynamic modern web applications with real-world deployment
+        experience.
       </p>
 
       <div class="buttons">
-        <a href="#" class="primary-btn">
+
+        <a href="#" class="btn1">
           Download Resume
-          <i class="ri-download-line"></i>
         </a>
 
-        <a href="#" class="secondary-btn">
+        <a href="#" class="btn2">
           Explore Work
-          <i class="ri-arrow-right-line"></i>
         </a>
+
       </div>
 
       <!-- Stats -->
       <div class="stats">
 
-        <div class="stat-box">
-          <h2>10+</h2>
-          <p>Projects</p>
+        <div class="box">
+          <h3>10+</h3>
+          <span>Projects</span>
         </div>
 
-        <div class="stat-box">
-          <h2>AI/ML</h2>
-          <p>Research</p>
+        <div class="box">
+          <h3>AI/ML</h3>
+          <span>Research</span>
         </div>
 
-        <div class="stat-box">
-          <h2>CDAC</h2>
-          <p>Internship</p>
-        </div>
-
-        <div class="stat-box">
-          <h2>Cyber</h2>
-          <p>Security</p>
+        <div class="box">
+          <h3>CDAC</h3>
+          <span>Internship</span>
         </div>
 
       </div>
 
-      <!-- Socials -->
-      <div class="socials">
+      <!-- Social -->
+      <div class="social">
 
-        <a href="#"><i class="ri-github-fill"></i></a>
+        <a href="#">
+          <i class="ri-github-fill"></i>
+        </a>
 
-        <a href="#"><i class="ri-linkedin-fill"></i></a>
+        <a href="#">
+          <i class="ri-linkedin-fill"></i>
+        </a>
 
-        <a href="#"><i class="ri-mail-fill"></i></a>
+        <a href="#">
+          <i class="ri-mail-fill"></i>
+        </a>
+
+      </div>
+
+    </div>
+
+    <!-- RIGHT -->
+    <div class="hero-right">
+
+      <div class="glass-card">
+
+        <div class="circle"></div>
+
+        <h3>AI ENGINEER</h3>
+
+        <p>
+          Building futuristic AI products and
+          scalable secure systems.
+        </p>
 
       </div>
 
@@ -122,5 +142,7 @@
   </section>
 
   <script src="script.js"></script>
+
 </body>
+
 </html>
