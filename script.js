@@ -1,37 +1,19 @@
-// =========================
-// script.js
-// =========================
-
 // Smooth reveal animation
 
-const hero = document.querySelector(".hero-content");
+const hero = document.querySelector(".hero");
 
 window.addEventListener("load", () => {
-  hero.style.opacity = "0";
-  hero.style.transform = "translateY(40px)";
 
-  setTimeout(() => {
-    hero.style.transition = "1.2s ease";
-    hero.style.opacity = "1";
-    hero.style.transform = "translateY(0)";
-  }, 300);
-});
+    hero.style.opacity = "0";
+    hero.style.transform = "translateY(40px)";
 
-// Mouse glow effect
+    setTimeout(() => {
 
-document.addEventListener("mousemove", (e) => {
+        hero.style.transition = "1s ease";
 
-  const glow = document.createElement("div");
+        hero.style.opacity = "1";
+        hero.style.transform = "translateY(0px)";
 
-  glow.className = "cursor-glow";
-
-  glow.style.left = `${e.clientX}px`;
-  glow.style.top = `${e.clientY}px`;
-
-  document.body.appendChild(glow);
-
-  setTimeout(() => {
-    glow.remove();
-  }, 500);
+    }, 200);
 
 });
