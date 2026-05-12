@@ -1,145 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Hari Om Singh | Portfolio</title>
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css" />
-
-  <!-- Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet">
-
-  <!-- Icons -->
-  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="style.css"/>
 </head>
-
 <body>
 
-  <!-- Animated Background -->
-  <div class="bg"></div>
+  <!-- Animated background -->
+  <canvas id="bg-canvas"></canvas>
 
   <!-- Navbar -->
-  <header>
-
-    <div class="logo">
-      Hari Om Singh
-    </div>
-
-    <nav>
-      <a href="#">Home</a>
-      <a href="#">About</a>
-      <a href="#">Projects</a>
-      <a href="#">Experience</a>
-      <a href="#">Contact</a>
-    </nav>
-
-    <button class="hire-btn">
-      Hire Me
+  <nav>
+    <a href="#home" class="logo">Hari<span>Om</span></a>
+    <ul class="nav-links">
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="theme-toggle" title="Toggle theme">
+      <i class="fas fa-sun"></i>
     </button>
-
-  </header>
+  </nav>
 
   <!-- Hero Section -->
-  <section class="hero">
+  <section id="home">
+    <div class="hero-inner">
 
-    <!-- LEFT -->
-    <div class="hero-left">
-
-      <div class="tag">
-        <span></span>
-        Available for internships
+      <div class="hero-tag">
+        <span class="dot"></span>
+        Available for opportunities
       </div>
 
-      <h1>
-        Building AI Systems <br>
-        That Feel Alive.
-      </h1>
+      <p class="hero-greeting">Hi there, I'm</p>
+      <h1 class="hero-name">Hari Om Singh</h1>
+      <div class="hero-role" id="typed-role"></div>
 
-      <h2>
-        AI/ML Engineer • Cybersecurity Enthusiast • Full Stack Developer
-      </h2>
-
-      <p>
-        I build scalable AI systems, secure backend infrastructure,
-        and dynamic modern web applications with real-world deployment
-        experience.
+      <p class="hero-desc">
+        A passionate full-stack developer and ML engineer, bridging the gap between
+        intelligent algorithms and production-ready systems. Currently mastering
+        PyTorch, FastAPI, and the ever-evolving landscape of Scientific ML.
       </p>
 
-      <div class="buttons">
-
-        <a href="#" class="btn1">
-          Download Resume
-        </a>
-
-        <a href="#" class="btn2">
-          Explore Work
-        </a>
-
+      <div class="hero-btns">
+        <a href="amazon_cv.pdf" target="_blank" class="btn-primary">My Resume</a>
+        <a href="https://github.com/hari-om65" target="_blank" class="btn-outline">GitHub</a>
       </div>
 
-     <!-- Social -->
-<div class="social">
-
-    <a href="#">
-      <i class="ri-github-fill"></i>
-    </a>
-
-    <a href="#">
-      <i class="ri-linkedin-fill"></i>
-    </a>
-
-    <a href="#">
-      <i class="ri-mail-fill"></i>
-    </a>
-
-</div>
-
-      <!-- Social -->
-      <div class="social">
-
-        <a href="#">
-          <i class="ri-github-fill"></i>
-        </a>
-
-        <a href="#">
-          <i class="ri-linkedin-fill"></i>
-        </a>
-
-        <a href="#">
-          <i class="ri-mail-fill"></i>
-        </a>
-
+      <div class="social-links">
+        <a href="https://instagram.com"          target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://twitter.com"            target="_blank" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+        <a href="https://linkedin.com"           target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://github.com/hari-om65"  target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
       </div>
 
     </div>
 
-    <!-- RIGHT -->
-    <div class="hero-right">
-
-      <div class="glass-card">
-
-        <div class="circle"></div>
-
-        <h3>AI ENGINEER</h3>
-
-        <p>
-          Building futuristic AI products and
-          scalable secure systems.
-        </p>
-
-      </div>
-
+    <div class="scroll-hint">
+      <div class="arrow"></div>
+      <span>Scroll</span>
     </div>
-
   </section>
 
   <script src="script.js"></script>
-
 </body>
-
 </html>
