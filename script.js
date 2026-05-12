@@ -1,56 +1,93 @@
-// Floating Particles
-const particles = document.getElementById('particles');
-for (let i = 0; i < 30; i++) {
-  const p = document.createElement('div');
-  p.className = 'particle';
-  p.style.left = Math.random() * 100 + '%';
-  p.style.animationDuration = (Math.random() * 15 + 10) + 's';
-  p.style.animationDelay = Math.random() * 10 + 's';
-  particles.appendChild(p);
+// Navbar scroll
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 50) navbar.classList.add('scrolled');
+  else navbar.classList.remove('scrolled');
+});
+
+// Mouse glow
+const mouseGlow = document.getElementById('mouseGlow');
+let mouseX = 0, mouseY = 0, glowX = 0, glowY = 0;
+
+window.addEventListener('mousemove', (e) => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+});
+
+function animateGlow() {
+  glowX += (mouseX - glowX) * 0.08;
+  glowY += (mouseY - glowY) * 0.08;
+  mouseGlow.style.transform = `translate(${glowX}px, ${glowY}px) translate(-50%, -50%)`;
+  requestAnimationFrame(animateGlow);
 }
+animateGlow();
 
-// Typing Animation
-const roles = [
-  "AI/ML Engineer",
-  "Scientific ML Researcher",
-  "Backend Developer",
-  "Open Source Contributor"
-];
-let roleIdx = 0, charIdx = 0, deleting = false;
-const typedEl = document.getElementById('typed');
+// Image tilt
+const wrapper = document.getElementById('imageWrapper');
+const frame = document.getElementById('imageFrame');
 
-function type() {
-  const current = roles[roleIdx];
-  if (deleting) {
-    typedEl.textContent = current.substring(0, charIdx--);
-    if (charIdx < 0) { deleting = false; roleIdx = (roleIdx+1) % roles.length; }
-    setTimeout(type, 60);
-  } else {
-    typedEl.textContent = current.substring(0, charIdx++);
-    if (charIdx > current.length) { deleting = true; setTimeout(type, 1800); return; }
-    setTimeout(type, 100);
+wrapper.addEventListener('mousemove', (e) => {
+  const rect = wrapper.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
+  const rotateX = ((y - rect.height/2) / (rect.height/2)) * -8;
+  const rotateY = ((x - rect.width/2) / (rect.width/2)) * 8;
+  frame.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+});
+
+wrapper.addEventListener('mouseleave', () => {
+  frame.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+});
+
+// Particles
+const canvas = document.getElementById('particles');
+const ctx = canvas.getContext('2d');
+let particles = [];
+
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+
+class Particle {
+  constructor() {
+    this.x = Math.random() * canvas.width;
+    this.y = Math.random() * canvas.height;
+    this.size = Math.random() * 1.8 + 0.4;
+    this.speedX = (Math.random() - 0.5) * 0.25;
+    this.speedY = (Math.random() - 0.5) * 0.25;
+    this.opacity = Math.random() * 0.5 + 0.15;
+    this.color = Math.random() > 0.6 ? '0,217,255' : '74,158,255';
+  }
+  update() {
+    this.x += this.speedX;
+    this.y += this.speedY;
+    if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+    if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+  }
+  draw() {
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(${this.color}, ${this.opacity})`;
+    ctx.shadowBlur = 8;
+    ctx.shadowColor = `rgba(${this.color}, 0.6)`;
+    ctx.fill();
   }
 }
-type();
 
-// Active nav on scroll
-const sections = document.querySelectorAll('.hero, .section');
-const navLinks = document.querySelectorAll('.nav-links a');
-window.addEventListener('scroll', () => {
-  let current = '';
-  sections.forEach(sec => {
-    if (scrollY >= sec.offsetTop - 200) current = sec.id;
-  });
-  navLinks.forEach(link => {
-    link.classList.remove('active');
-    if (link.getAttribute('href') === '#' + current) link.classList.add('active');
-  });
-});
+function initParticles() {
+  particles = [];
+  const count = Math.floor((canvas.width * canvas.height) / 22000);
+  for (let i = 0; i < count; i++) particles.push(new Particle());
+}
+initParticles();
+window.addEventListener('resize', initParticles);
 
-// Contact form
-document.getElementById('contactForm').addEventListener('submit', e => {
-  e.preventDefault();
-  const name = e.target.querySelector('input[type="text"]').value;
-  alert(`Thanks ${name}! 🚀 Your message was received. I'll reply within 24 hours.`);
-  e.target.reset();
-});
+function animateParticles() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  particles.forEach(p => { p.update(); p.draw(); });
+  requestAnimationFrame(animateParticles);
+}
+animateParticles();
